@@ -43,11 +43,13 @@ const ItemListings = () => {
                   {" "}
                   Discounted: ${data.discountedPrice}
                 </p>
-                <img
-                  alt="Product"
-                  className="w-48 h-48 object-cover rounded-lg"
-                  src={`${data.image.url}`}
-                ></img>
+                <div className="flex justify-center">
+                  <img
+                    alt="Product"
+                    className="w-100 h-100 object-fit rounded-lg"
+                    src={`${data.image.url}`}
+                  ></img>
+                </div>
                 <p className="text-indigo-500 font-bold">${data.rating}</p>
               </div>
             ))}
