@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Cart from "./Cart";
 
 const NavBar = () => {
   const linkClass = ({ isActive }) =>
@@ -28,6 +29,7 @@ const NavBar = () => {
                 <NavLink to="/contact" className={linkClass}>
                   Contact Us
                 </NavLink>
+                <Cart />
               </div>
             </div>
           </div>

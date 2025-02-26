@@ -32,30 +32,44 @@ const ItemListings = () => {
             <Spinner loading={loading} />
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">
           {item.map((data) => (
-            <div key={data.id} className="p-4 bg-blue-100 rounded-lg shadow ">
-              <h3 className="text-2xl font-semibold m-1 w-120">{data.title}</h3>
-              <p className="text-gray-600 m-1">{data.description}</p>
-              <p className="text-indigo-400 font-bold m-1">
-                Price: ${data.price}
-              </p>
-              <p className="text-indigo-500 font-bold m-1">
-                {" "}
-                Discounted: ${data.discountedPrice}
-              </p>
-              <div className="flex justify-center m-1">
-                <img
-                  alt="Product"
-                  className="w-120 h-120 object-cover rounded-lg"
-                  src={`${data.image.url}`}
-                ></img>
+            <div
+              key={data.id}
+              className=" bg-amber-50 rounded-lg shadow-2xl max-w-sm w-full mx-auto flex flex-col h-full p-8 "
+            >
+              {/* Title */}
+              <h3 className="text-2xl font-semibold m-1">{data.title}</h3>
+
+              {/* Description with flex-grow to prevent pushing content down */}
+              <p className="text-gray-600 m-1 flex-grow">{data.description}</p>
+
+              {/* Push everything below the description to a fixed position */}
+              <div className="mt-auto">
+                <p className="text-indigo-400 font-bold m-1">
+                  Price: ${data.price}
+                </p>
+                <p className="text-indigo-500 font-bold m-1 ">
+                  Discounted: ${data.discountedPrice}
+                </p>
+
+                {/* Image with padding to ensure spacing */}
+                <div className="flex justify-center">
+                  <img
+                    alt="Product"
+                    className="w-70 h-70 object-cover rounded-lg shadow-2xl"
+                    src={`${data.image.url}`}
+                  />
+                </div>
+
+                {/* Rating at the bottom */}
+                <p className="text-indigo-500 font-bold text-center mt-2">
+                  Rating: {data.rating}
+                </p>
               </div>
-              <p className="text-indigo-500 font-bold">Rating: {data.rating}</p>
             </div>
           ))}
         </div>
-        )
       </div>
     </section>
   );
