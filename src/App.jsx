@@ -7,8 +7,10 @@ import {
 import MainLayout from "./layout/MainLayout";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/cartpage";
+import ContactPage from "./pages/contactPage";
 
 import "./App.css";
+import CartProvider from "./components/CartContext";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -16,10 +18,15 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/contactPage" element={<ContactPage />} />
       </Route>
     )
   );
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <RouterProvider router={router} />;
+    </CartProvider>
+  );
 };
 
 export default App;

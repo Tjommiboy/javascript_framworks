@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Cart from "./Cart";
+import ContactPage from "../pages/contactPage";
 
 const NavBar = () => {
   const linkClass = ({ isActive }) =>
@@ -14,7 +15,7 @@ const NavBar = () => {
         <div className="flex h-20 items-center justify-between">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-              <span className="hidden md:block text-yellow-400 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
+              <span className="hidden md:block text-yellow-500 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
                 Gimmi Bid n´Sell
               </span>
             </NavLink>
@@ -23,13 +24,13 @@ const NavBar = () => {
                 <NavLink to="/" className={linkClass}>
                   Home
                 </NavLink>
-                <NavLink to="/cart" className={linkClass}>
-                  Cart
-                </NavLink>
-                <NavLink to="/contact" className={linkClass}>
+
+                <NavLink to="/contactPage" className={linkClass}>
                   Contact Us
                 </NavLink>
-                <Cart />
+                <NavLink to="/cart" className={linkClass}>
+                  <Cart />
+                </NavLink>
               </div>
             </div>
           </div>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Spinner from "./Spinner";
+import { useCart } from "./CartContext";
+// import Spinner from "./Spinner";
 
 const ItemListings = () => {
   const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -11,6 +13,7 @@ const ItemListings = () => {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        console.log(data);
         setItem(data.data); // Ensure this matches API structure
       } catch (error) {
         console.log("Error fetching data:", error);
@@ -29,7 +32,7 @@ const ItemListings = () => {
         </h2>
         {loading && (
           <div className=" absolute inset-0 flex justify-center items-center bg-opacity-50 bg-blue-200 z-10">
-            <Spinner loading={loading} />
+            {/* <Spinner loading={loading} /> */}
           </div>
         )}
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">
@@ -38,13 +41,11 @@ const ItemListings = () => {
               key={data.id}
               className=" bg-amber-50 rounded-lg shadow-2xl max-w-sm w-full mx-auto flex flex-col h-full p-8 "
             >
-              {/* Title */}
               <h3 className="text-2xl font-semibold m-1">{data.title}</h3>
 
-              {/* Description with flex-grow to prevent pushing content down */}
               <p className="text-gray-600 m-1 flex-grow">{data.description}</p>
+              <hr className="border-t border-gray-200 " />
 
-              {/* Push everything below the description to a fixed position */}
               <div className="mt-auto">
                 <p className="text-indigo-400 font-bold m-1">
                   Price: ${data.price}
@@ -66,6 +67,12 @@ const ItemListings = () => {
                 <p className="text-indigo-500 font-bold text-center mt-2">
                   Rating: {data.rating}
                 </p>
+                <button
+                  onClick={() => addToCart(data.id)}
+                  className="bg-indigo-300 hover:bg-indigo-400 text-white text- px-2 py-1 rounded mt-1"
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           ))}
