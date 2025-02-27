@@ -48,46 +48,54 @@ const ItemListings = () => {
           </div>
         )}
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">
-          {item.map((data) => (
-            <div
-              key={data.id}
-              className=" bg-amber-50 rounded-lg shadow-2xl max-w-sm w-full mx-auto flex flex-col h-full p-8 "
-            >
-              <h3 className="text-2xl font-semibold m-1">{data.title}</h3>
+          {filteredItems.length > 0 ? (
+            filteredItems.map((data) => (
+              <div
+                key={data.id}
+                className=" bg-amber-50  rounded-lg shadow-2xl max-w-sm w-full mx-auto flex flex-col h-full p-8 "
+              >
+                <h3 className="text-2xl font-semibold m-1">{data.title}</h3>
 
-              <p className="text-gray-600 m-1 flex-grow">{data.description}</p>
-              <hr className="border-t border-gray-200 " />
-
-              <div className="mt-auto">
-                <p className="text-indigo-400 font-bold m-1">
-                  Price: ${data.price}
+                <p className="text-gray-600 m-1 flex-grow">
+                  {data.description}
                 </p>
-                <p className="text-indigo-500 font-bold m-1 ">
-                  Discounted: ${data.discountedPrice}
-                </p>
+                <hr className="border-t border-gray-200 " />
 
-                {/* Image with padding to ensure spacing */}
-                <div className="flex justify-center">
-                  <img
-                    alt="Product"
-                    className="w-70 h-70 object-cover rounded-lg shadow-2xl"
-                    src={`${data.image.url}`}
-                  />
+                <div className="mt-auto">
+                  <p className="text-indigo-400 font-bold m-1">
+                    Price: ${data.price}
+                  </p>
+                  <p className="text-indigo-500 font-bold m-1 ">
+                    Discounted: ${data.discountedPrice}
+                  </p>
+
+                  <div className="flex justify-center">
+                    <img
+                      alt="Product"
+                      className="w-70 h-70 object-cover rounded-lg shadow-2xl"
+                      src={`${data.image.url}`}
+                    />
+                  </div>
+
+                  <div className="flex justify-between mt-1">
+                    <p className="text-indigo-500 font-bold text-center mt-2">
+                      Rating: {data.rating}
+                    </p>
+                    <button
+                      onClick={() => addToCart(data.id)}
+                      className="bg-indigo-300 hover:bg-indigo-400 text-white text- px-2 py-1 rounded mt-1"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-
-                {/* Rating at the bottom */}
-                <p className="text-indigo-500 font-bold text-center mt-2">
-                  Rating: {data.rating}
-                </p>
-                <button
-                  onClick={() => addToCart(data.id)}
-                  className="bg-indigo-300 hover:bg-indigo-400 text-white text- px-2 py-1 rounded mt-1"
-                >
-                  Add to Cart
-                </button>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="text-center text-gray-500 text-lg">
+              No matching items found.
+            </p>
+          )}
         </div>
       </div>
     </section>
