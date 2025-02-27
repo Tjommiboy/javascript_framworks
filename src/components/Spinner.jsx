@@ -10,7 +10,7 @@ const override = {
 const Spinner = ({ loading }) => {
   return (
     <RiseLoader
-      color="#4338ca"
+      color="#A5B4FC"
       loading={loading}
       cssOverride={override}
       size={50}
