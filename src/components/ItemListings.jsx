@@ -36,7 +36,7 @@ const ItemListings = () => {
   }, [search, item]);
 
   return (
-    <section className="bg-blue-200 px-4 py-10 pt-40">
+    <section className="bg-blue-200 px-4 py-10 pt-40  ">
       <div className="container-xl lg:container m-auto  ">
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           Item Listings

@@ -16,7 +16,7 @@ const SearchBar = ({ search, setSearch }) => {
     if (query.length > 0) {
       const filteredSuggestions = items
         .map((item) => item.title)
-        .filter((title) => title.toLowerCase().includes(query.toLowerCase()))
+        .filter((title) => title.toLowerCase().startsWith(trimmedQuery))
         .slice(0, 3);
       setItems(items);
       setSuggestions(filteredSuggestions);
