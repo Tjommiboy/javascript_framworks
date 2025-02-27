@@ -1,5 +1,6 @@
 import React from "react";
 import RiseLoader from "react-spinners/RiseLoader";
+import { css } from "@emotion/react";
 
 const override = {
   display: "block",
@@ -12,7 +13,7 @@ const Spinner = ({ loading }) => {
       color="#4338ca"
       loading={loading}
       cssOverride={override}
-      size={10}
+      size={50}
     />
   );
 };

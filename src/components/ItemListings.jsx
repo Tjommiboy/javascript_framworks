@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "./CartContext";
-// import Spinner from "./Spinner";
+import Spinner from "./Spinner";
+import SearchBar from "./SearchBar";
 
 const ItemListings = () => {
   const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
+  const [search, setSearch] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -14,7 +17,8 @@ const ItemListings = () => {
         const response = await fetch(apiUrl);
         const data = await response.json();
         console.log(data);
-        setItem(data.data); // Ensure this matches API structure
+        setItem(data.data);
+        setFilteredItems(data.data);
       } catch (error) {
         console.log("Error fetching data:", error);
       } finally {
@@ -24,15 +28,23 @@ const ItemListings = () => {
     fetchItem();
   }, []);
 
+  useEffect(() => {
+    const filtered = item.filter((item) =>
+      item.title.toLowerCase().includes(search)
+    );
+    setFilteredItems(filtered);
+  }, [search, item]);
+
   return (
-    <section className="bg-blue-200 px-4 py-10">
+    <section className="bg-blue-200 px-4 py-10 pt-40">
       <div className="container-xl lg:container m-auto  ">
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           Item Listings
         </h2>
+        <SearchBar search={search} setSearch={setSearch} />
         {loading && (
           <div className=" absolute inset-0 flex justify-center items-center bg-opacity-50 bg-blue-200 z-10">
-            {/* <Spinner loading={loading} /> */}
+            <Spinner loading={loading} />
           </div>
         )}
         <div className="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-6">

@@ -11,6 +11,7 @@ import ContactPage from "./pages/contactPage";
 
 import "./App.css";
 import CartProvider from "./components/CartContext";
+import ProductPage from "./pages/productpage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -19,6 +20,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/contactPage" element={<ContactPage />} />
+        <Route path="/productPage" element={<ProductPage />} />
       </Route>
     )
   );
