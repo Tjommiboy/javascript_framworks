@@ -17,7 +17,7 @@ const ItemListings = () => {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
-        console.log(data);
+
         setItem(data.data);
         setFilteredItems(data.data);
       } catch (error) {

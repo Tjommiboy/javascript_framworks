@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { X, Menu } from "lucide-react"; // Icons for menu and close
 import Cart from "./Cart";
-import ContactPage from "../pages/contactPage";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   const linkClass = ({ isActive }) =>
     isActive
       ? "bg-purple-700 text-yellow-400 font-bold hover:text-yellow-300 rounded-md px-3 py-2"
@@ -13,29 +17,61 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 w-full bg-indigo-500 border-b border-indigo-200 z-50 shadow-md">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-            <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-              <span className="hidden md:block text-yellow-500 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
-                Gimmi Bid n´Sell
-              </span>
-            </NavLink>
-            <div className="md:ml-auto">
-              <div className="flex space-x-2">
-                <NavLink to="/" className={linkClass}>
-                  Home
-                </NavLink>
+          {/* Logo */}
+          <NavLink className="flex  justify-center" to="/">
+            <span className=" md:block  text-yellow-500 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
+              Gimmi Bid n´Sell
+            </span>
+          </NavLink>
 
-                <NavLink to="/contactPage" className={linkClass}>
-                  Contact Us
-                </NavLink>
-                <NavLink to="/cart" className={linkClass}>
-                  <Cart />
-                </NavLink>
-              </div>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-4">
+            <NavLink to="/" className={linkClass}>
+              Home
+            </NavLink>
+            <NavLink to="/contactPage" className={linkClass}>
+              Contact Us
+            </NavLink>
+            <NavLink to="/cart" className={linkClass}>
+              <Cart />
+            </NavLink>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button onClick={toggleMenu} className="md:hidden text-yellow-300">
+            <Menu size={28} />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Modal Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-blue-200 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-indigo-500 p-6 rounded-lg w-4/5 max-w-md text-center">
+            <button
+              onClick={toggleMenu}
+              className="absolute top-4 right-4 text-yellow-400"
+            >
+              <X size={28} />
+            </button>
+            <div className="flex flex-col space-y-4">
+              <NavLink to="/" className={linkClass} onClick={toggleMenu}>
+                Home
+              </NavLink>
+              <NavLink
+                to="/contactPage"
+                className={linkClass}
+                onClick={toggleMenu}
+              >
+                Contact Us
+              </NavLink>
+              <NavLink to="/cart" className={linkClass} onClick={toggleMenu}>
+                <Cart />
+              </NavLink>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

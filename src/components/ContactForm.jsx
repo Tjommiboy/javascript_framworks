@@ -43,7 +43,7 @@ const ContactForm = () => {
 
   return (
     <div className="flex justify-center mb-6">
-      <div className="w-full max-w-md bg-white p-6 shadow-lg rounded-lg">
+      <div className="w-full max-w-md bg-amber-50 p-6 shadow-lg rounded-lg">
         <h2 className="text-xl font-semibold text-center mb-4">Contact Us</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
