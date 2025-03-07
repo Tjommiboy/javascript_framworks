@@ -18,7 +18,7 @@ const NavBar = () => {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <NavLink className="flex  justify-center" to="/">
+          <NavLink className="flex justify-center w-full md:w-auto" to="/">
             <span className=" md:block  text-yellow-500 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
               Gimmi Bid n´Sell
             </span>
@@ -46,7 +46,7 @@ const NavBar = () => {
 
       {/* Mobile Modal Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-blue-200 bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-[rgba(12,19,28,0.89)] bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-indigo-500 p-6 rounded-lg w-4/5 max-w-md text-center">
             <button
               onClick={toggleMenu}
