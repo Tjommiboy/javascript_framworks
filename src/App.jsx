@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import HomePage from "../src/pages/homepage";
-import CartPage from "./pages/cartpage";
-import ContactPage from "./pages/contactPage";
+import CartPage from "../src/pages/cartpage";
+import ContactPage from "../src/pages/contactPage";
 
 import "./App.css";
-import CartProvider from "./components/CartContext";
-import ProductPage from "./pages/productpage";
+import CartProvider from "../src/components/CartContext";
+import ProductPage from "../src/pages/productPage";
 
 const App = () => {
   const router = createBrowserRouter(
