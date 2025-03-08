@@ -7,7 +7,7 @@ import {
 import MainLayout from "./layout/MainLayout.jsx";
 import HomePage from "../src/pages/homepage.jsx";
 import CartPage from "../src/pages/cartpage.jsx";
-import ContactPage from "../src/pages/ContactPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
 
 import "./App.css";
 import CartProvider from "../src/components/CartContext.jsx";
