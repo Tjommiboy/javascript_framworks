@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
-import HomePage from "./pages/HomePage";
+import HomePage from "../src/pages/homepage";
 import CartPage from "./pages/cartpage";
 import ContactPage from "./pages/contactPage";
 
@@ -17,7 +17,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/contactPage" element={<ContactPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
