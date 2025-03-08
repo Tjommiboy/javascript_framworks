@@ -9,7 +9,7 @@ import HomePage from "./pages/homepage.jsx"; // Updated path and case
 import CartPage from "./pages/cartpage.jsx"; // Updated path and case
 import ContactPage from "./pages/contactpage.jsx"; // This one was working
 import "./App.css";
-import CartProvider from "./components/cartContext.jsx"; // Updated path
+import CartProvider from "./components/CartContext.jsx"; // Updated path
 import ProductPage from "./pages/productpage.jsx"; // Updated path and case
 
 const App = () => {
