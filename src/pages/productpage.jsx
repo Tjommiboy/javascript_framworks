@@ -43,49 +43,47 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="flex m-auto container">
-      <div className="flex  justify-center items-center gap-6 my-bg px-4 py-10 pt-40  ">
-        <div className="bg-amber-50 flex gap-6 m-1 p-4 rounded ">
-          <div>
-            <img
-              className="w-100  rounded-lg shadow-xl"
-              src={product.image?.url}
-              alt={product.title}
-            />
-          </div>
-          <div className="border-l-2 border-gray-200  flex flex-col"> </div>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            <div>
-              <h2 className="text-2xl font-bold text-indigo-500 mb-4">
-                {product.title}
-              </h2>
-              <p className="text-lg text-gray-500">{product.description}</p>
-              <p className="text-xl font-semibold text-indigo-500 mt-4">
-                Price: ${product.price}
-              </p>
+    <div className="container mx-auto px-4 py-10 mt-20">
+      <div className="flex flex-col md:flex-row gap-6 bg-amber-50 p-6 rounded-lg shadow-lg">
+        <div className="w-full md:w-1/2 flex justify-center">
+          <img
+            className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-auto max-w-xs md:max-w-md rounded-xl shadow-xl"
+            src={product.image?.url}
+            alt={product.title}
+          />
+        </div>
 
-              <p className="text-xl font-semibold text-indigo-500 mt-4">
-                {product.discountedPrice !== product.price && (
-                  <p className="text-xl font-semibold text-green-500 mt-4">
-                    Discount: ${product.price - product.discountedPrice}
-                  </p>
-                )}
-              </p>
-              <p className="text-xl font-semibold text-indigo-400 mt-4">
-                {product.discountedPrice !== product.price ? (
-                  <>Discounted price ${product.discountedPrice} </>
-                ) : (
-                  <span className="text-gray-300">No Discount</span>
-                )}
-              </p>
-              <button
-                onClick={() => addToCart(product.id)}
-                className="bg-indigo-300 hover:bg-indigo-400 text-white px-2 py-1 rounded mt-1"
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
+        {/* Product Details */}
+        <div className="w-full md:w-1/2 flex flex-col">
+          <h2 className="text-2xl font-bold text-indigo-500">
+            {product.title}
+          </h2>
+          <p className="text-lg text-gray-500">{product.description}</p>
+
+          <p className="text-xl font-semibold text-indigo-500 mt-4">
+            Price: ${product.price}
+          </p>
+
+          {product.discountedPrice !== product.price && (
+            <p className="text-xl font-semibold text-green-500 mt-2">
+              Discount: ${product.price - product.discountedPrice}
+            </p>
+          )}
+
+          <p className="text-xl font-semibold text-indigo-400 mt-4">
+            {product.discountedPrice !== product.price ? (
+              <>New Price: ${product.discountedPrice}</>
+            ) : (
+              <span className="text-gray-300">No Discount</span>
+            )}
+          </p>
+
+          <button
+            onClick={() => addToCart(product.id)}
+            className="bg-indigo-300 hover:bg-indigo-400 text-white px-4 py-2 rounded mt-4 shadow-lg"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

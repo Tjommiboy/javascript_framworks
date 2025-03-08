@@ -27,7 +27,9 @@ const ProductCard = ({ data, addToCart }) => {
           <p className="text-indigo-400 font-bold">Price: ${data.price}</p>
           <p className="text-indigo-500 font-bold">
             {data.discountedPrice !== data.price && (
-              <p className="text-sm font-semibold text-green-500 ">on sale!</p>
+              <p className="text-sm font-semibold text-green-500 ">
+                click for discount
+              </p>
             )}
           </p>
         </div>

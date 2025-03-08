@@ -19,7 +19,7 @@ const NavBar = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <NavLink className="flex justify-center w-full md:w-auto" to="/">
-            <span className=" md:block  text-yellow-500 text-2xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
+            <span className=" md:block  text-yellow-500 text-3xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
               Gimmi Bid n´Sell
             </span>
           </NavLink>
