@@ -4,12 +4,19 @@ import { useCart } from "./CartContext";
 
 const Cart = () => {
   const { cart } = useCart();
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
-    <div className="flex">
-      <BsCart3 className="text-amber-300 mt-1" />
-      <span className="text-amber-300">
-        ({cart.reduce((acc, item) => acc + item.quantity, 0)})
-      </span>
+    <div className="relative flex items-center">
+      {/* Cart Icon */}
+      <BsCart3 className="text-amber-300 text-2xl ml-30" />
+
+      {/* Cart Badge (Only shows if cartCount > 0) */}
+      {cartCount > 0 && (
+        <span className="absolute -top-2 -right-3 bg-red-500 text-amber-300 text-xs font-bold px-2 py-1 rounded-full">
+          {cartCount}
+        </span>
+      )}
     </div>
   );
 };

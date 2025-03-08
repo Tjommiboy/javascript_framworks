@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { X, Menu } from "lucide-react"; // Icons for menu and close
 import Cart from "./Cart";
 
@@ -17,14 +17,20 @@ const NavBar = () => {
     <nav className="fixed top-0 left-0 w-full bg-indigo-500 border-b border-indigo-200 z-50 shadow-md">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <NavLink className="flex justify-center w-full md:w-auto" to="/">
-            <span className=" md:block  text-yellow-500 text-3xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
-              Gimmi Bid n´Sell
-            </span>
-          </NavLink>
+          {/* Logo & Mobile Cart (outside nav links) */}
+          <div className="flex  items-center space-x-4">
+            <NavLink className="flex justify-center w-full md:w-auto" to="/">
+              <span className="md:block text-yellow-500 text-3xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
+                Gimmi Bid n´Sell
+              </span>
+            </NavLink>
+            {/* ✅ Mobile Cart (Visible only in mobile mode, outside nav links) */}
+          </div>
+          <Link to="/cart" className="md:hidden">
+            <Cart />
+          </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav (Only visible on md+ screens) */}
           <div className="hidden md:flex space-x-4">
             <NavLink to="/" className={linkClass}>
               Home
@@ -32,7 +38,8 @@ const NavBar = () => {
             <NavLink to="/contactPage" className={linkClass}>
               Contact Us
             </NavLink>
-            <NavLink to="/cart" className={linkClass}>
+            {/* ✅ Desktop Cart (Visible only on desktop) */}
+            <NavLink to="/cart">
               <Cart />
             </NavLink>
           </div>
@@ -65,6 +72,7 @@ const NavBar = () => {
               >
                 Contact Us
               </NavLink>
+              {/* ✅ Mobile Cart inside nav menu */}
               <NavLink to="/cart" className={linkClass} onClick={toggleMenu}>
                 <Cart />
               </NavLink>
