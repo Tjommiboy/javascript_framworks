@@ -5,13 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from "./layout/MainLayout.jsx";
-import HomePage from "../src/pages/homepage.jsx";
-import CartPage from "../src/pages/cartpage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import CartPage from "./pages/CartPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
-
+import ProductPage from "./pages/ProductPage.jsx";
 import "./App.css";
-import CartProvider from "../src/components/CartContext.jsx";
-import ProductPage from "../src/pages/productPage.jsx";
+import CartProvider from "./components/CartContext.jsx";
 
 const App = () => {
   const router = createBrowserRouter(
