@@ -2,21 +2,21 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "../components/CartContext";
 
 const CartPage = () => {
-  const { cart, addToCart, removeFromCart, clearCart } = useCart();
+  const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
   const [editingQuantity, setEditingQuantity] = useState({});
 
-  // Log cart data to see its structure
+  // ✅ Debugging - Log cart data
   useEffect(() => {
     console.log("Cart Data:", cart);
   }, [cart]);
 
-  // Calculate total price
+  // ✅ Calculate total price
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
 
-  // Sync editingQuantity with cart when cart changes
+  // ✅ Sync `editingQuantity` with cart items when cart updates
   useEffect(() => {
     const initialQuantity = cart.reduce((acc, item) => {
       acc[item.id] = item.quantity;
@@ -25,18 +25,16 @@ const CartPage = () => {
     setEditingQuantity(initialQuantity);
   }, [cart]);
 
+  // ✅ Handle quantity change (increase, decrease, manual input)
   const handleQuantityChange = (productId, quantity) => {
-    if (quantity >= 1) {
+    if (quantity > 0) {
       setEditingQuantity((prev) => ({
         ...prev,
         [productId]: quantity,
       }));
-      addToCart({
-        id: productId,
-        quantity:
-          quantity -
-          (cart.find((item) => item.id === productId)?.quantity || 0),
-      });
+      updateQuantity(productId, quantity);
+    } else {
+      removeFromCart(productId); // Remove if quantity reaches 0
     }
   };
 
