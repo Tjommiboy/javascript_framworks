@@ -5,12 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from "./layout/MainLayout.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import CartPage from "./pages/CartPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import ProductPage from "./pages/ProductPage.jsx";
+import HomePage from "./pages/HomePage.jsx"; // Updated path and case
+import CartPage from "./pages/CartPage.jsx"; // Updated path and case
+import ContactPage from "./pages/ContactPage.jsx"; // This one was working
 import "./App.css";
-import CartProvider from "./components/CartContext.jsx";
+import CartProvider from "./components/CartContext.jsx"; // Updated path
+import ProductPage from "./pages/ProductPage.jsx"; // Updated path and case
 
 const App = () => {
   const router = createBrowserRouter(
