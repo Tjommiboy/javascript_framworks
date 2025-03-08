@@ -40,24 +40,25 @@ const CartPage = () => {
 
   return (
     <div className="p-4 mt-20">
-      <h2 className="text-xl  text-indigo-500 text-center font-bold">
+      <h2 className="text-xl text-indigo-500 text-center font-bold">
         Shopping Cart
       </h2>
       <div className="flex justify-center">
-        <div className="w-full max-w-md bg-amber-50 p-6 shadow-lg rounded-lg">
+        <div className="w-full max-w-lg bg-amber-50 p-6 shadow-lg rounded-lg">
           {cart.length === 0 ? (
-            <p>Your cart is empty.</p>
+            <p className="text-center">Your cart is empty.</p>
           ) : (
             <div>
               {cart.map((item) => (
                 <div
                   key={item.id}
-                  className="flex justify-between border-b p-2"
+                  className="flex items-center justify-between border-b p-2 gap-4"
                 >
-                  <span>{item.title}</span>
+                  {/* Product Title (Fixed Width for Uniform Layout) */}
+                  <span className="w-1/3 truncate">{item.title}</span>
 
-                  {/* Quantity Adjuster */}
-                  <div className="flex items-center space-x-2">
+                  {/* Quantity Adjuster (Fixed Width) */}
+                  <div className="flex items-center gap-2">
                     <button
                       onClick={() =>
                         handleQuantityChange(item.id, item.quantity - 1)
@@ -77,7 +78,7 @@ const CartPage = () => {
                         )
                       }
                       min="1"
-                      className="w-12 text-center"
+                      className="w-12 text-center border rounded"
                     />
                     <button
                       onClick={() =>
@@ -89,7 +90,12 @@ const CartPage = () => {
                     </button>
                   </div>
 
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  {/* Price (Fixed Width) */}
+                  <span className="w-1/4 text-right">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </span>
+
+                  {/* Remove Button */}
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500"
@@ -98,17 +104,21 @@ const CartPage = () => {
                   </button>
                 </div>
               ))}
-              <h3 className="text-lg font-bold mt-4 ml-auto w-fit">
+
+              {/* Total Price - Pushed to the Right */}
+              <h3 className="text-lg font-bold mt-4 text-right">
                 Total: ${totalPrice.toFixed(2)}
               </h3>
-              <div className="flex justify-between">
+
+              {/* Buttons Row */}
+              <div className="flex justify-between mt-4">
                 <button
                   onClick={clearCart}
-                  className="bg-red-500 text-white p-2 mt-2 rounded"
+                  className="bg-red-500 text-white p-2 rounded"
                 >
                   Clear Cart
                 </button>
-                <button className="bg-green-500 text-white p-2 mt-2 rounded">
+                <button className="bg-green-500 text-white p-2 rounded">
                   Checkout
                 </button>
               </div>
