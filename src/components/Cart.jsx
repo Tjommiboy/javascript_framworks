@@ -7,7 +7,9 @@ const Cart = () => {
   return (
     <div className="flex">
       <BsCart3 className="text-amber-300 mt-1" />
-      <span className="text-amber-300">({cart.length})</span>
+      <span className="text-amber-300">
+        ({cart.reduce((acc, item) => acc + item.quantity, 0)})
+      </span>
     </div>
   );
 };

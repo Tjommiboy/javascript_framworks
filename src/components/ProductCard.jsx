@@ -37,7 +37,7 @@ const ProductCard = ({ data, addToCart }) => {
           <p className="text-indigo-500 font-bold">Rating: {data.rating}</p>
 
           <button
-            onClick={() => addToCart(data.id)}
+            onClick={() => addToCart(data)} // Pass full product object
             className="bg-indigo-300 hover:bg-indigo-400 text-white px-3 py-1 rounded"
           >
             Add to Cart
