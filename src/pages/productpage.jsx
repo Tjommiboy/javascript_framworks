@@ -10,6 +10,7 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
 
   const { addToCart } = useCart();
+
   useEffect(() => {
     const fetchProduct = async () => {
       const apiUrl = "https://v2.api.noroff.dev/online-shop";
@@ -47,7 +48,7 @@ const ProductPage = () => {
       <div className="flex flex-col md:flex-row gap-6 bg-amber-50 p-6 rounded-lg shadow-lg">
         <div className="w-full md:w-1/2 flex justify-center">
           <img
-            className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-auto max-w-xs md:max-w-md rounded-xl shadow-xl"
+            className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-auto rounded-xl shadow-xl"
             src={product.image?.url}
             alt={product.title}
           />
