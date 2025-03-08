@@ -4,14 +4,14 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
-import HomePage from "../src/pages/homepage";
-import CartPage from "../src/pages/cartpage";
-import ContactPage from "../src/pages/ContactPage";
+import MainLayout from "./layout/MainLayout.jsx";
+import HomePage from "../src/pages/homepage.jsx";
+import CartPage from "../src/pages/cartpage.jsx";
+import ContactPage from "../src/pages/ContactPage.jsx";
 
 import "./App.css";
-import CartProvider from "../src/components/CartContext";
-import ProductPage from "../src/pages/productPage";
+import CartProvider from "../src/components/CartContext.jsx";
+import ProductPage from "../src/pages/productPage.jsx";
 
 const App = () => {
   const router = createBrowserRouter(
