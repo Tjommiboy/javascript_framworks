@@ -1,5 +1,5 @@
 import fs from "fs";
-const path = require("path");
+import path from "path";
 
 // Show current directory
 console.log("CURRENT DIRECTORY:", process.cwd());
