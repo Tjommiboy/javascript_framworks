@@ -80,8 +80,8 @@ const ProductPage = () => {
           </p>
 
           <button
-            onClick={() => addToCart(product.id)}
-            className="bg-indigo-300 hover:bg-indigo-400 text-white px-4 py-2 rounded mt-4 shadow-lg"
+            onClick={() => addToCart(product)} // Pass full product object
+            className="bg-indigo-300 hover:bg-indigo-400 text-white px-3 py-1 rounded"
           >
             Add to Cart
           </button>
