@@ -39,7 +39,7 @@ const NavBar = () => {
               Contact Us
             </NavLink>
             {/* ✅ Desktop Cart (Visible only on desktop) */}
-            <NavLink to="/cart">
+            <NavLink className="mt-1" to="/cart">
               <Cart />
             </NavLink>
           </div>
