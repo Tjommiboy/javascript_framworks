@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { X, Menu } from "lucide-react"; // Icons for menu and close
+import { X, Menu } from "lucide-react";
 import Cart from "./Cart";
 
 const NavBar = () => {
@@ -16,36 +16,46 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-indigo-500 border-b border-indigo-200 z-50 shadow-md">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo & Mobile Cart (outside nav links) */}
-          <div className="flex  items-center space-x-4">
-            <NavLink className="flex justify-center w-full md:w-auto" to="/">
-              <span className="md:block text-yellow-500 text-3xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300">
-                Gimmi Bid n´Sell
-              </span>
-            </NavLink>
-            {/* ✅ Mobile Cart (Visible only in mobile mode, outside nav links) */}
-          </div>
-          <Link to="/cart" className="md:hidden">
-            <Cart />
-          </Link>
+        {/* Desktop Layout: Justify-between (logo left, links right) */}
+        <div className="hidden md:flex justify-between items-center h-20">
+          {/* Logo on the Left */}
+          <NavLink
+            to="/"
+            className="text-yellow-500 text-3xl font-bold ml-2 hover:shadow-2xl hover:text-yellow-300"
+          >
+            Gimmi Bid n´Sell
+          </NavLink>
 
-          {/* Desktop Nav (Only visible on md+ screens) */}
-          <div className="hidden md:flex space-x-4">
+          {/* Nav Links + Cart on the Right */}
+          <div className="flex items-center space-x-4">
             <NavLink to="/" className={linkClass}>
               Home
             </NavLink>
             <NavLink to="/contactPage" className={linkClass}>
               Contact Us
             </NavLink>
-            {/* ✅ Desktop Cart (Visible only on desktop) */}
-            <NavLink className="mt-1" to="/cart">
+            {/* Desktop Cart (right side) */}
+            <NavLink to="/cart">
               <Cart />
             </NavLink>
           </div>
+        </div>
 
-          {/* Mobile Menu Button */}
-          <button onClick={toggleMenu} className="md:hidden text-yellow-300">
+        {/* Mobile Layout: Centered */}
+        <div className="flex md:hidden justify-center items-center h-20">
+          <NavLink
+            to="/"
+            className="text-yellow-500 text-3xl font-bold hover:shadow-2xl hover:text-yellow-300"
+          >
+            Gimmi Bid n´Sell
+          </NavLink>
+          <Link to="/cart" className="absolute right-4">
+            <Cart />
+          </Link>
+          <button
+            onClick={toggleMenu}
+            className="absolute left-4 text-yellow-300"
+          >
             <Menu size={28} />
           </button>
         </div>
@@ -72,7 +82,6 @@ const NavBar = () => {
               >
                 Contact Us
               </NavLink>
-              {/* ✅ Mobile Cart inside nav menu */}
               <NavLink to="/cart" className={linkClass} onClick={toggleMenu}>
                 <Cart />
               </NavLink>
