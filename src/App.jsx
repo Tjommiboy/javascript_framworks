@@ -7,7 +7,7 @@ import {
 import MainLayout from "./layout/MainLayout";
 import HomePage from "../src/pages/homepage";
 import CartPage from "../src/pages/cartpage";
-import ContactPage from "../src/pages/contactPage";
+import ContactPage from "./pages/ContactPage";
 
 import "./App.css";
 import CartProvider from "../src/components/CartContext";
