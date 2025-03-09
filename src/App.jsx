@@ -11,7 +11,7 @@ import ContactPage from "./pages/contactpage.jsx";
 import "./App.css";
 import CartProvider from "./components/CartContext.jsx";
 import ProductPage from "./pages/productpage.jsx";
-import CheckoutPage from "./pages/CheckoutPage.jsx";
+import CheckoutPage from "./pages/checkoutpage.jsx";
 
 const App = () => {
   const router = createBrowserRouter(
