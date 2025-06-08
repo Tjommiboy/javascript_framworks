@@ -8,7 +8,7 @@ const CheckoutSuccess = () => {
 
   useEffect(() => {
     clearCart(); // ✅ Clear the cart when this page loads
-  }, []);
+  }, [clearCart]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">

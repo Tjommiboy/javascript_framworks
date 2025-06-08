@@ -6,9 +6,7 @@ const CartPage = () => {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
   const [editingQuantity, setEditingQuantity] = useState({});
 
-  useEffect(() => {
-    console.log("Cart Data:", cart);
-  }, [cart]);
+  useEffect(() => {}, [cart]);
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,

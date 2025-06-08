@@ -17,7 +17,7 @@ const ProductPage = () => {
       try {
         const response = await fetch(`${apiUrl}/${id}`);
         const data = await response.json();
-        console.log(data);
+
         setProduct(data.data);
       } catch (error) {
         console.error("Error fetching product:", error);
