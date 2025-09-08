@@ -67,7 +67,7 @@ const NavBar = () => {
           <div className="bg-indigo-500 p-6 rounded-lg w-4/5 max-w-md text-center">
             <button
               onClick={toggleMenu}
-              className="absolute top-4 right-4 text-yellow-400"
+              className="absolute top-68 right-10 text-yellow-400"
             >
               <X size={28} />
             </button>
@@ -75,15 +75,15 @@ const NavBar = () => {
               <NavLink to="/" className={linkClass} onClick={toggleMenu}>
                 Home
               </NavLink>
+              <NavLink to="/cart" className={linkClass} onClick={toggleMenu}>
+                <Cart />
+              </NavLink>
               <NavLink
                 to="/contactPage"
                 className={linkClass}
                 onClick={toggleMenu}
               >
                 Contact Us
-              </NavLink>
-              <NavLink to="/cart" className={linkClass} onClick={toggleMenu}>
-                <Cart />
               </NavLink>
             </div>
           </div>

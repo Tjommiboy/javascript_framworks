@@ -48,14 +48,14 @@ const ProductPage = () => {
       <div className="flex flex-col md:flex-row gap-6 bg-amber-50 p-6 rounded-lg shadow-lg">
         <div className="w-full md:w-1/2 flex justify-center">
           <img
-            className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-auto rounded-xl shadow-xl"
+            className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 max-w-[300px] rounded-xl shadow-xl"
             src={product.image?.url}
             alt={product.title}
           />
         </div>
 
         {/* Product Details */}
-        <div className="w-full md:w-1/2 flex flex-col">
+        <div className="w-full md:w-1/3 flex flex-col">
           <h2 className="text-2xl font-bold text-indigo-500">
             {product.title}
           </h2>

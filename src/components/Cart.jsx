@@ -7,7 +7,7 @@ const Cart = () => {
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex justify-center items-center">
       {/* Cart Icon */}
       <BsCart3 className="text-amber-300 text-2xl " />
 
